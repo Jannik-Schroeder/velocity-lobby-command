@@ -108,7 +108,7 @@ hangarPublish {
         channel.set("Snapshot") // We're using the 'Snapshot' channel
         // TODO: Edit the project name to match your Hangar project
         id.set("velocity-lobby-command")
-        apiKey.set(System.getenv("HANGAR_API_TOKEN"))
+        apiKey.set(System.getenv("HANGAR_API_TOKEN") ?: "dummy-key-for-local-build")
         platforms {
             // Velocity platform support
             register(io.papermc.hangarpublishplugin.model.Platforms.VELOCITY) {
@@ -131,4 +131,9 @@ hangarPublish {
             }
         }
     }
+}
+
+// Ensure proper task dependencies
+tasks.named("publishPluginPublicationToHangar") {
+    dependsOn("shadowJar")
 }

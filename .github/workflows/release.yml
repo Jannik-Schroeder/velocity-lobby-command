@@ -1,0 +1,120 @@
+name: Release Management
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release (e.g., 1.0.0)'
+        required: true
+        default: '1.0.0'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+        
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+        
+    - name: Extract version
+      id: version
+      run: |
+        if [[ ${{ github.event_name }} == 'workflow_dispatch' ]]; then
+          echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+        else
+          echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Update POM version
+      run: |
+        mvn versions:set -DnewVersion=${{ steps.version.outputs.VERSION }}
+        mvn versions:commit
+        
+    - name: Build with Maven
+      run: mvn clean package
+      
+    - name: Run tests
+      run: mvn test
+      
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ steps.version.outputs.VERSION }}
+        release_name: Release v${{ steps.version.outputs.VERSION }}
+        body: |
+          ## What's New in v${{ steps.version.outputs.VERSION }}
+          
+          ### Features
+          - Lobby teleportation commands: `/hub`, `/lobby`, `/l`
+          - Smart server detection
+          - Configurable messages
+          - Comprehensive logging
+          
+          ### Installation
+          1. Download the JAR file below
+          2. Place it in your Velocity server's `plugins/` directory
+          3. Restart your Velocity server
+          4. Configure your lobby server in `velocity.toml`
+          
+          ### Usage
+          Players can use any of these commands to teleport to the lobby:
+          - `/hub` - Teleport to lobby
+          - `/lobby` - Teleport to lobby
+          - `/l` - Teleport to lobby (short version)
+          
+          ### Requirements
+          - Velocity 3.4.0+
+          - Java 17+
+          
+          ### Changelog
+          See the [full changelog](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for detailed information.
+        draft: false
+        prerelease: false
+        
+    - name: Upload Release Assets
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}.jar
+        asset_name: velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}.jar
+        asset_content_type: application/java-archive
+        
+    - name: Upload Source JAR
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}-sources.jar
+        asset_name: velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}-sources.jar
+        asset_content_type: application/java-archive
+        
+    - name: Notify success
+      run: |
+        echo "✅ Release v${{ steps.version.outputs.VERSION }} created successfully!"
+        echo "📦 JAR file uploaded to GitHub Releases"
+        echo "🔗 Release URL: ${{ steps.create_release.outputs.html_url }}"

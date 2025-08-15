@@ -1,0 +1,38 @@
+# Velocity Lobby Plugin Configuration
+# This file contains all configurable options for the plugin
+
+# The name of your lobby server as configured in velocity.toml
+lobby-server-name: "lobby"
+
+# Messages configuration
+messages:
+  # Message when player is already on lobby server
+  already-on-lobby: "&eYou are already on the lobby server!"
+  
+  # Message when connecting to lobby
+  connecting: "&aConnecting to lobby..."
+  
+  # Message when lobby server is offline
+  server-offline: "&cLobby server is offline!"
+  
+  # Message when lobby server is not available
+  server-unavailable: "&cLobby server is not available!"
+  
+  # Message when connection fails
+  connection-failed: "&cFailed to connect to lobby server!"
+  
+  # Message for non-players trying to use the command
+  players-only: "&cThis command can only be used by players!"
+
+# Command configuration
+commands:
+  # Enable/disable specific commands
+  hub-enabled: true
+  lobby-enabled: true
+  l-enabled: true
+  
+  # Command aliases (you can add more if needed)
+  aliases:
+    hub: ["lobby", "l"]
+    lobby: ["hub", "l"]
+    l: ["hub", "lobby"]

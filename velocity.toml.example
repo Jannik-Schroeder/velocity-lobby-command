@@ -1,0 +1,64 @@
+# Example Velocity configuration file
+# Copy this to your Velocity server directory and rename to velocity.toml
+# Then modify the server addresses to match your setup
+
+# Basic Velocity configuration
+bind = "0.0.0.0:25565"
+motd1 = "&bWelcome to &fMy Network"
+motd2 = "&eJoin our amazing community!"
+
+# Player limits
+show-max-players = true
+online-mode = true
+prevent-client-proxy-connections = false
+player-info-forwarding-mode = "modern"
+
+# Server list configuration
+show-all-players-in-tab = true
+
+# Servers configuration
+# This is where you define your lobby server
+[servers]
+# Lobby server - this name must match what's configured in the plugin
+lobby = "127.0.0.1:25566"
+
+# Example game servers
+survival = "127.0.0.1:25567"
+creative = "127.0.0.1:25568"
+minigames = "127.0.0.1:25569"
+
+# Try configuration
+[try]
+enabled = true
+modify-server-list = true
+servers = ["lobby"]
+
+# Forced hosts (optional)
+# [forced-hosts]
+# "lobby.example.com" = ["lobby"]
+# "survival.example.com" = ["survival"]
+
+# Player limits per server (optional)
+[servers.lobby]
+players = 100
+[servers.survival]
+players = 50
+[servers.creative]
+players = 30
+[servers.minigames]
+players = 100
+
+# Advanced settings
+[advanced]
+connection-timeout = 30000
+read-timeout = 30000
+connection-throttle = 0
+compression-threshold = 256
+compression-level = 6
+login-timeout = 300
+connection-timeout = 30000
+read-timeout = 30000
+connection-throttle = 0
+compression-threshold = 256
+compression-level = 6
+login-timeout = 300

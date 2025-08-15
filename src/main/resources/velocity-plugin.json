@@ -1,0 +1,9 @@
+{
+  "id": "velocity-lobby-plugin",
+  "name": "Velocity Lobby Plugin",
+  "version": "1.0.0",
+  "description": "A Velocity plugin that allows players to teleport to the lobby using /hub, /lobby, and /l commands",
+  "authors": ["YourName"],
+  "dependencies": [],
+  "main": "com.example.velocitylobby.VelocityLobbyPlugin"
+}

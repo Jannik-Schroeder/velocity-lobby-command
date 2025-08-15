@@ -84,7 +84,6 @@
         <module name="EqualsHashCode"/>
         <module name="HiddenField">
             <property name="ignoreSetter" value="true"/>
-            <property name="ignoreGetter" value="true"/>
         </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>

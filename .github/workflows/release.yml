@@ -11,6 +11,9 @@ on:
         required: true
         default: '1.0.0'
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -89,7 +92,7 @@ jobs:
           - Java 17+
           
           ### Changelog
-          See the [full changelog](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for detailed information.
+          See the [full changelog](https://github.com/Jannik-Schroeder/velocity-lobby-command/blob/main/CHANGELOG.md) for detailed information.
         draft: false
         prerelease: false
         

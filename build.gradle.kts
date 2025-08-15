@@ -136,4 +136,10 @@ hangarPublish {
 // Ensure proper task dependencies
 tasks.named("publishPluginPublicationToHangar") {
     dependsOn("shadowJar")
+    mustRunAfter("shadowJar")
+}
+
+// Ensure proper task order
+tasks.named("shadowJar") {
+    dependsOn("jar")
 }

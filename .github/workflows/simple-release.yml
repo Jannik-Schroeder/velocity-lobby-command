@@ -35,10 +35,10 @@ jobs:
     - name: Create Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{ github.event.inputs.version || github.ref_name }}
-        name: Release v${{ github.event.inputs.version || github.ref_name }}
+        tag_name: ${{ github.event.inputs.version || github.ref_name }}
+        name: Release ${{ github.event.inputs.version || github.ref_name }}
         body: |
-          ## What's New in v${{ github.event.inputs.version || github.ref_name }}
+          ## What's New in ${{ github.event.inputs.version || github.ref_name }}
           
           ### Features
           - Lobby teleportation commands: `/hub`, `/lobby`, `/l`

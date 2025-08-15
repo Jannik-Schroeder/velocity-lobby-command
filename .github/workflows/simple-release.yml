@@ -40,29 +40,35 @@ jobs:
         body: |
           ## What's New in ${{ github.event.inputs.version || github.ref_name }}
           
-          ### Features
+          ### 🆕 New Features
           - Lobby teleportation commands: `/hub`, `/lobby`, `/l`
-          - Smart server detection
-          - Configurable messages
-          - Comprehensive logging
+          - Smart server detection and server status checking
+          - Configurable messages with color code support
+          - Comprehensive logging for debugging and monitoring
           
-          ### Installation
+          ### 🔧 Improvements
+          - Updated package structure to me.jsde domain
+          - Fixed GitHub Actions workflows and permissions
+          - Corrected release naming and versioning
+          - Enhanced error handling and user feedback
+          
+          ### 📦 Installation
           1. Download the JAR file below
           2. Place it in your Velocity server's `plugins/` directory
           3. Restart your Velocity server
           4. Configure your lobby server in `velocity.toml`
           
-          ### Usage
+          ### 🎮 Usage
           Players can use any of these commands to teleport to the lobby:
           - `/hub` - Teleport to lobby
           - `/lobby` - Teleport to lobby
           - `/l` - Teleport to lobby (short version)
           
-          ### Requirements
+          ### ⚙️ Requirements
           - Velocity 3.4.0+
           - Java 17+
           
-          ### Changelog
+          ### 📋 Changelog
           See the [full changelog](https://github.com/Jannik-Schroeder/velocity-lobby-command/blob/main/CHANGELOG.md) for detailed information.
         draft: false
         prerelease: false

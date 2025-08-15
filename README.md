@@ -1,6 +1,6 @@
 # Velocity Lobby Command
 
-[![Build Status](https://github.com/Jannik-Schroeder/velocity-lobby-command/workflows/Build%20and%20Release/badge.svg)](https://github.com/Jannik-Schroeder/velocity-lobby-command/actions)
+[![Release Status](https://github.com/Jannik-Schroeder/velocity-lobby-command/workflows/Simple%20Release/badge.svg)](https://github.com/Jannik-Schroeder/velocity-lobby-command/actions)
 [![CI Status](https://github.com/Jannik-Schroeder/velocity-lobby-command/workflows/Continuous%20Integration/badge.svg)](https://github.com/Jannik-Schroeder/velocity-lobby-command/actions)
 [![Code Quality](https://github.com/Jannik-Schroeder/velocity-lobby-command/workflows/Code%20Quality/badge.svg)](https://github.com/Jannik-Schroeder/velocity-lobby-command/actions)
 
@@ -19,6 +19,31 @@ A Velocity server plugin that provides a simple command for players to teleport 
 - **Velocity**: 3.4.0 or higher
 - **Java**: 17 or higher
 - **Maven**: For building the plugin
+
+## 🚀 **GitHub Actions & Automation**
+
+### **Automatic Releases**
+
+This project uses GitHub Actions to automatically build and release the plugin:
+
+- **`.github/workflows/simple-release.yml`** - Creates releases when you create version tags
+- **`.github/workflows/ci.yml`** - Runs tests and quality checks on every push
+- **`.github/workflows/quality.yml`** - Weekly code quality and security scans
+
+### **How to Create a Release**
+
+1. **Create a version tag** (without 'v' prefix):
+   ```bash
+   git tag 1.1.0
+   git push origin 1.1.0
+   ```
+
+2. **GitHub Actions automatically:**
+   - Builds the plugin
+   - Creates a GitHub Release
+   - Uploads the JAR file for download
+
+3. **Users can download directly** from the Releases tab without building
 
 ## Installation
 

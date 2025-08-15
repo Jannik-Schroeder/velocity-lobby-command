@@ -17,6 +17,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved error handling in command execution
 - Enhanced logging for better debugging
 
+## [1.2.1] - 2025-01-15
+
+### Added
+- GitHub Actions workflows for automated building and testing
+- Code quality checks with Checkstyle
+- Automated release management
+- Continuous integration pipeline
+
+### Changed
+- Improved error handling in command execution
+- Enhanced logging for better debugging
+- Updated package structure to me.jsde domain
+- Fixed GitHub Actions workflows and permissions
+- Corrected release naming and versioning
+
 ## [1.0.0] - 2024-01-XX
 
 ### Added

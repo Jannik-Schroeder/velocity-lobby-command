@@ -1,0 +1,119 @@
+# 🤖 ASSISTANT RELEASE RULES - Für mich selbst
+
+## 📋 **WENN USER NACH RELEASE FRAGT - IMMER DIESE SCHRITTE:**
+
+### 1. **CHANGELOG.md aktualisieren**
+```markdown
+## [1.1.0] - 2024-01-15  # DATUM VON HEUTE!
+
+### Added
+- Neue Features hinzugefügt
+- Verbesserungen implementiert
+
+### Changed
+- Bestehende Funktionalität verbessert
+- Performance-Optimierungen
+
+### Fixed
+- Bugs behoben
+- Probleme gelöst
+```
+
+### 2. **Version in pom.xml aktualisieren**
+```xml
+<version>1.1.0</version>  # Neue Versionsnummer
+```
+
+### 3. **velocity-plugin.json aktualisieren**
+```json
+"version": "1.1.0"  # Neue Versionsnummer
+```
+
+### 4. **Java-Klassen aktualisieren**
+```java
+@Plugin(
+    id = "velocity-lobby-command",
+    name = "Velocity Lobby Command",
+    version = "1.1.0",  # Neue Versionsnummer
+    // ...
+)
+```
+
+### 5. **GitHub Actions Workflow aktualisieren**
+```yaml
+# In .github/workflows/simple-release.yml
+# Body-Text anpassen für neue Version
+body: |
+  ## What's New in 1.1.0  # Neue Versionsnummer
+  
+  ### Features
+  - [NEUE FEATURES AUFLISTEN]
+  - [VERBESSERUNGEN AUFLISTEN]
+```
+
+### 6. **README.md aktualisieren**
+- Neue Features dokumentieren
+- Änderungen erklären
+- Beispiele aktualisieren
+
+### 7. **Release-Beschreibung vorbereiten**
+```markdown
+## What's New in 1.1.0
+
+### 🆕 New Features
+- [Feature 1 beschreiben]
+- [Feature 2 beschreiben]
+
+### 🔧 Improvements
+- [Verbesserung 1]
+- [Verbesserung 2]
+
+### 🐛 Bug Fixes
+- [Bug 1 behoben]
+- [Bug 2 behoben]
+
+### 📦 Installation
+1. Download the JAR file below
+2. Place it in your Velocity server's `plugins/` directory
+3. Restart your Velocity server
+4. Configure your lobby server in `velocity.toml`
+```
+
+## ⚠️ **WICHTIGE REGELN:**
+
+### **Datum:**
+- **IMMER** aktuelles Datum verwenden
+- Format: `YYYY-MM-DD` (z.B. `2024-01-15`)
+
+### **Versionsnummer:**
+- **Semantic Versioning** folgen: `MAJOR.MINOR.PATCH`
+- Bei Features: `1.1.0` → `1.2.0`
+- Bei Bugfixes: `1.1.0` → `1.1.1`
+- Bei Breaking Changes: `1.1.0` → `2.0.0`
+
+### **Alle Dateien synchronisieren:**
+- `pom.xml`
+- `velocity-plugin.json`
+- `VelocityLobbyPlugin.java`
+- `CHANGELOG.md`
+- GitHub Actions Workflows
+
+### **Release-Beschreibung:**
+- **Detailliert** und **benutzerfreundlich**
+- **Alle Änderungen** auflisten
+- **Installationsanweisungen** klar machen
+- **Requirements** aktualisieren
+
+## 🎯 **BEISPIEL-ABLAUF:**
+
+1. **User fragt:** "Ich will ein Release für Feature X"
+2. **Ich frage:** "Welche Features/Änderungen soll ich auflisten?"
+3. **Ich aktualisiere:** Alle Dateien mit neuer Version
+4. **Ich zeige:** Vollständige Release-Beschreibung
+5. **User bestätigt:** Release kann erstellt werden
+
+## 📝 **NACHTRAG:**
+- **NIE** vergessen, alle Dateien zu aktualisieren
+- **IMMER** aktuelles Datum verwenden
+- **DETAILIERT** dokumentieren, was sich geändert hat
+- **BENUTZERFREUNDLICH** schreiben

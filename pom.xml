@@ -6,7 +6,7 @@
 
     <groupId>me.jsde</groupId>
     <artifactId>velocity-lobby-command</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.1</version>
     <packaging>jar</packaging>
 
     <name>Velocity Lobby Command</name>

@@ -1,9 +1,9 @@
 {
-  "id": "velocity-lobby-plugin",
-  "name": "Velocity Lobby Plugin",
+  "id": "velocity-lobby-command",
+  "name": "Velocity Lobby Command",
   "version": "1.0.0",
-  "description": "A Velocity plugin that allows players to teleport to the lobby using /hub, /lobby, and /l commands",
-  "authors": ["YourName"],
+  "description": "A Velocity plugin that provides a simple command for players to teleport to the lobby using /hub, /lobby, and /l commands",
+  "authors": ["Jannik-Schroeder"],
   "dependencies": [],
-  "main": "com.example.velocitylobby.VelocityLobbyPlugin"
+  "main": "me.jsde.velocitylobby.VelocityLobbyPlugin"
 }

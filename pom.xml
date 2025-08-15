@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>velocity-lobby-plugin</artifactId>
+    <groupId>me.jsde</groupId>
+    <artifactId>velocity-lobby-command</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Velocity Lobby Plugin</name>
-    <description>A Velocity plugin that allows players to teleport to the lobby using /hub, /lobby, and /l commands</description>
+    <name>Velocity Lobby Command</name>
+    <description>A Velocity plugin that provides a simple command for players to teleport to the lobby using /hub, /lobby, and /l commands</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -63,6 +63,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <finalName>velocity-lobby-command-${project.version}</finalName>
                         </configuration>
                     </execution>
                 </executions>

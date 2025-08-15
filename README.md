@@ -1,10 +1,10 @@
-# Velocity Lobby Plugin
+# Velocity Lobby Command
 
-[![Build Status](https://github.com/{{ github.repository }}/workflows/Build%20and%20Release/badge.svg)](https://github.com/{{ github.repository }}/actions)
-[![CI Status](https://github.com/{{ github.repository }}/workflows/Continuous%20Integration/badge.svg)](https://github.com/{{ github.repository }}/actions)
-[![Code Quality](https://github.com/{{ github.repository }}/workflows/Code%20Quality/badge.svg)](https://github.com/{{ github.repository }}/actions)
+[![Build Status](https://github.com/Jannik-Schroeder/velocity-lobby-command/workflows/Build%20and%20Release/badge.svg)](https://github.com/Jannik-Schroeder/velocity-lobby-command/actions)
+[![CI Status](https://github.com/Jannik-Schroeder/velocity-lobby-command/workflows/Continuous%20Integration/badge.svg)](https://github.com/Jannik-Schroeder/velocity-lobby-command/actions)
+[![Code Quality](https://github.com/Jannik-Schroeder/velocity-lobby-command/workflows/Code%20Quality/badge.svg)](https://github.com/Jannik-Schroeder/velocity-lobby-command/actions)
 
-A Velocity server plugin that allows players to teleport to the lobby server using `/hub`, `/lobby`, and `/l` commands.
+A Velocity server plugin that provides a simple command for players to teleport to the lobby server using `/hub`, `/lobby`, and `/l` commands.
 
 ## Features
 
@@ -26,18 +26,18 @@ A Velocity server plugin that allows players to teleport to the lobby server usi
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd velocity-lobby-plugin
+git clone https://github.com/Jannik-Schroeder/velocity-lobby-command.git
+cd velocity-lobby-command
 
 # Build with Maven
 mvn clean package
 ```
 
-The compiled plugin will be in the `target/` directory as `velocity-lobby-plugin-1.0.0.jar`.
+The compiled plugin will be in the `target/` directory as `velocity-lobby-command-1.0.0.jar`.
 
 ### 2. Install on Velocity Server
 
-1. Copy the `velocity-lobby-plugin-1.0.0.jar` file to your Velocity server's `plugins/` directory
+1. Copy the `velocity-lobby-command-1.0.0.jar` file to your Velocity server's `plugins/` directory
 2. Restart your Velocity server
 3. The plugin will automatically load and register the commands
 
@@ -52,7 +52,7 @@ lobby = "127.0.0.1:25566"  # Your lobby server address
 
 ## Configuration
 
-The plugin creates a `config.yml` file in the `plugins/velocity-lobby-plugin/` directory after first run.
+The plugin creates a `config.yml` file in the `plugins/velocity-lobby-command/` directory after first run.
 
 ### Main Configuration
 
@@ -132,8 +132,8 @@ The plugin logs all activities to the Velocity server console:
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd velocity-lobby-plugin
+git clone https://github.com/Jannik-Schroeder/velocity-lobby-command.git
+cd velocity-lobby-command
 
 # Build the project
 mvn clean package
@@ -148,7 +148,7 @@ mvn test
 src/
 ├── main/
 │   ├── java/
-│   │   └── com/example/velocitylobby/
+│   │   └── me/jsde/velocitylobby/
 │   │       ├── VelocityLobbyPlugin.java    # Main plugin class
 │   │       └── LobbyCommand.java           # Command executor
 │   └── resources/

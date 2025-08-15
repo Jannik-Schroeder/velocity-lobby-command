@@ -1,4 +1,4 @@
-package com.example.velocitylobby;
+package me.jsde.velocitylobby;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
@@ -12,11 +12,11 @@ import org.slf4j.Logger;
 import java.nio.file.Path;
 
 @Plugin(
-    id = "velocity-lobby-plugin",
-    name = "Velocity Lobby Plugin",
+    id = "velocity-lobby-command",
+    name = "Velocity Lobby Command",
     version = "1.0.0",
-    description = "A Velocity plugin that allows players to teleport to the lobby using /hub, /lobby, and /l commands",
-    authors = {"YourName"}
+    description = "A Velocity plugin that provides a simple command for players to teleport to the lobby using /hub, /lobby, and /l commands",
+    authors = {"Jannik-Schroeder"}
 )
 public class VelocityLobbyPlugin {
 
@@ -33,12 +33,12 @@ public class VelocityLobbyPlugin {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        logger.info("Velocity Lobby Plugin is starting up!");
+        logger.info("Velocity Lobby Command is starting up!");
         
         // Register commands
         registerCommands();
         
-        logger.info("Velocity Lobby Plugin has been enabled!");
+        logger.info("Velocity Lobby Command has been enabled!");
     }
 
     private void registerCommands() {

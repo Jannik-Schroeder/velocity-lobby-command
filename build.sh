@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Building Velocity Lobby Plugin..."
+echo "Building Velocity Lobby Command..."
 
 # Check if Maven is installed
 if ! command -v mvn &> /dev/null; then
@@ -15,7 +15,7 @@ mvn clean package
 if [ $? -eq 0 ]; then
     echo ""
     echo "✅ Build successful!"
-    echo "📦 Plugin JAR created: target/velocity-lobby-plugin-1.0.0.jar"
+    echo "📦 Plugin JAR created: target/velocity-lobby-command-1.0.0.jar"
     echo ""
     echo "To install:"
     echo "1. Copy the JAR file to your Velocity server's plugins/ directory"

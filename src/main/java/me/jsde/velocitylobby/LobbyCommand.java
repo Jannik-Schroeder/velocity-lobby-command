@@ -1,4 +1,4 @@
-package com.example.velocitylobby;
+package me.jsde.velocitylobby;
 
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;

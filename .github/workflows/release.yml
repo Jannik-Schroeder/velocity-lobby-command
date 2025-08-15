@@ -99,8 +99,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}.jar
-        asset_name: velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}.jar
+        asset_path: target/velocity-lobby-command-${{ steps.version.outputs.VERSION }}.jar
+        asset_name: velocity-lobby-command-${{ steps.version.outputs.VERSION }}.jar
         asset_content_type: application/java-archive
         
     - name: Upload Source JAR
@@ -109,8 +109,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}-sources.jar
-        asset_name: velocity-lobby-plugin-${{ steps.version.outputs.VERSION }}-sources.jar
+        asset_path: target/velocity-lobby-command-${{ steps.version.outputs.VERSION }}-sources.jar
+        asset_name: velocity-lobby-command-${{ steps.version.outputs.VERSION }}-sources.jar
         asset_content_type: application/java-archive
         
     - name: Notify success

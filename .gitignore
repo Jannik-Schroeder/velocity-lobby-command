@@ -1,14 +1,10 @@
-# Maven
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
 
 # IDE
 .idea/
@@ -34,9 +30,9 @@ Thumbs.db
 logs/
 
 # Plugin specific
-plugins/velocity-lobby-plugin/
+plugins/
 *.jar
-!target/*.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 # Temporary files
 *.tmp
@@ -44,3 +40,6 @@ plugins/velocity-lobby-plugin/
 *.swp
 *.swo
 *~
+
+# GitHub Actions artifacts
+.github/workflows/*.yml.bak

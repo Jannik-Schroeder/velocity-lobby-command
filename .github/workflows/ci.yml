@@ -19,7 +19,7 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven
+        cache: gradle
         
     - name: Cache Maven packages
       uses: actions/cache@v3
@@ -28,25 +28,25 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
         
-    - name: Validate POM
-      run: mvn validate
+    - name: Validate Gradle
+      run: ./gradlew validate
       
     - name: Compile
-      run: mvn compile
+      run: ./gradlew compileJava
       
     - name: Run tests
-      run: mvn test
+      run: ./gradlew test
       
     - name: Check code style
-      run: mvn checkstyle:check
+      run: ./gradlew checkstyle
       continue-on-error: true
       
     - name: Build without tests
-      run: mvn package -DskipTests
+      run: ./gradlew shadowJar
       
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: ci-build
-        path: target/velocity-lobby-command-*.jar
+        path: build/libs/velocity-lobby-command-*.jar
         retention-days: 7

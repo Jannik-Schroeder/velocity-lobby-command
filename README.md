@@ -29,6 +29,17 @@ This project uses GitHub Actions to automatically build and release the plugin:
 - **`.github/workflows/simple-release.yml`** - Creates releases when you create version tags
 - **`.github/workflows/ci.yml`** - Runs tests and quality checks on every push
 - **`.github/workflows/quality.yml`** - Weekly code quality and security scans
+- **`.github/workflows/publish.yml`** - Automatically publishes to PaperMC Hangar
+
+### **PaperMC Hangar Integration**
+
+This plugin is automatically published to [PaperMC Hangar](https://hangar.papermc.io/) on every commit to the main branch.
+
+**Features:**
+- ✅ **Auto-publishing** to Hangar on every commit
+- ✅ **Snapshot channel** for development builds
+- ✅ **Velocity platform** support
+- ✅ **Version compatibility** with Velocity 3.4.0+
 
 ### **How to Create a Release**
 

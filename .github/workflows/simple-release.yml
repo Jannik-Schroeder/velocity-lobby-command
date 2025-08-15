@@ -28,10 +28,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: maven
-        
-    - name: Build with Maven
-      run: mvn clean package
+        cache: gradle
+    - name: Build with Gradle
+      run: ./gradlew shadowJar
       
     - name: Create Release
       uses: softprops/action-gh-release@v1
@@ -74,5 +73,5 @@ jobs:
         draft: false
         prerelease: false
         files: |
-          target/velocity-lobby-command-*.jar
+          build/libs/velocity-lobby-command-*.jar
         token: ${{ secrets.GITHUB_TOKEN }}
